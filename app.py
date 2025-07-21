@@ -45,7 +45,7 @@ def submit():
     )
     p=""
     for chunk in stream:
-        p+=chunk.choices[0].delta.content
+        p += chunk.choices[0].delta.content
     km.append(p)
     return render_template('resultdisplay.html',kx=p,spc=pr)
 
