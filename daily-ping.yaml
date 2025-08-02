@@ -1,0 +1,11 @@
+name : Regular Notif Render
+on:
+  schedule: 
+  -cron: "0 0 * * *"
+  workflow_dispatch:
+jobs:
+  curl-website:
+    runs-on: ubuntu-latest
+    steps:
+    -name: Run cURL on Website
+    run: curl -I https://progresspulse-1.onrender.com
