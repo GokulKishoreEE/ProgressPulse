@@ -5,6 +5,8 @@ import os
 import webbrowser
 from dotenv import load_dotenv
 import huggingface_hub
+import sys
+print("🐍 Python version:", sys.version)
 print("🔥 huggingface_hub version:", huggingface_hub.__version__)
 with open('./trainmlx.pkl','rb') as f:
     md = pickle.load(f)
