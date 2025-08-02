@@ -1,4 +1,4 @@
-**ProgressPulse**
+**ProgressPulse: **
 This web application is developed as a part of Naan Mudhalvan Skill Development course initiated by the Government Of Tamil Nadu to upskill the engineering under-graduate students. We have compared different regression models and deployed the best one for output evaluation. Recently hyperparameter tuning is also included in order to increase the accuracy of the model.
 _Application_ : Flask
 _ML Model_ : NumPy, Flask
