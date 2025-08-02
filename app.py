@@ -29,7 +29,7 @@ def submit():
     k=md.predict(arr)
     pr = k[0]
     assignp = assignment*100
-    client = InferenceClient(provider="novita",api_key=os.getenv('HF_APIKEY'))
+    client = InferenceClient(api_key=str(os.getenv('HF_APIKEY')))
     iparam = f'As a teacher you are speaking to a student. Generate a suggestion or feedback not more than 400 words for a student based on their CGPA {cgpa}, credits {credits}, extra-curriculars {extraCurricular}, projects {projects}, self-study hours {selfStudy}, interest in subjects {engagement} out of 10, assignment completion {assignp}, need of faculty contribution for the student is {contribution} out of 10, and improvement potential {pr} out of 10 without highlighting any numerical data in the response.'
     messages = [
 	{ "role": "user", "content": iparam }
