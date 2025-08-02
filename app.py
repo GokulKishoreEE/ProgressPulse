@@ -4,7 +4,7 @@ from huggingface_hub import InferenceClient
 import os
 import webbrowser
 from dotenv import load_dotenv
-with open('./trainml1.pkl','rb') as f:
+with open('./trainmlx.pkl','rb') as f:
     md = pickle.load(f)
 app = Flask(__name__,template_folder='templates')
 km=[]
@@ -29,21 +29,22 @@ def submit():
     k=md.predict(arr)
     pr = k[0]
     assignp = assignment*100
-    client = InferenceClient(provider="novita",api_key=os.getenv('HF_TOKEN1'))
-
-    iparam = f'As a teacher you are speaking to a student. Generate a suggestion or feedback not more than 400 words for a student based on their CGPA {cgpa}, credits {credits}, extra-curriculars {extraCurricular}, projects {projects}, self-study hours {selfStudy}, interest in subjects {engagement} out of 10, assignment completion {assignp}, need of faculty contribution for the student is {contribution} out of 10, and improvement potential {pr} out of 10.'
+    client = InferenceClient(provider="novita",api_key='HF_APIKEY')
+    iparam = f'As a teacher you are speaking to a student. Generate a suggestion or feedback not more than 400 words for a student based on their CGPA {cgpa}, credits {credits}, extra-curriculars {extraCurricular}, projects {projects}, self-study hours {selfStudy}, interest in subjects {engagement} out of 10, assignment completion {assignp}, need of faculty contribution for the student is {contribution} out of 10, and improvement potential {pr} out of 10 without highlighting any numerical data in the response.'
     messages = [
 	{ "role": "user", "content": iparam }
     ]
     stream = client.chat.completions.create(
-    model=os.getenv('HF_MODEL'), 
+    model='meta-llama/Llama-3.2-3B-Instruct', 
 	messages=messages, 
-	max_tokens=500,
+	max_tokens=1000,
 	stream=True
     )
-    p=""
+    p = ""
     for chunk in stream:
-        p += chunk.choices[0].delta.content
+        content = chunk.choices[0].delta.content
+        if content is not None:
+            p += content
     km.append(p)
     return render_template('resultdisplay.html',kx=p,spc=pr)
 
