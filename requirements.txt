@@ -24,7 +24,7 @@ fsspec==2024.10.0
 gitdb==4.0.11
 GitPython==3.1.43
 httplib2==0.22.0
-huggingface-hub==0.26.2
+huggingface-hub >= 0.28.0
 idna==3.10
 itsdangerous==2.2.0
 Jinja2==3.1.4
@@ -94,4 +94,5 @@ watchdog==5.0.3
 Werkzeug==3.0.6
 wrapt==1.16.0
 yarl==1.17.1
+
 
