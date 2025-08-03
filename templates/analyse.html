@@ -12,187 +12,236 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-    @keyframes spinworth{
-    
-        20%{
-            transform: translateY(-10%);
+        @keyframes spinworth {
+
+            20% {
+                transform: translateY(-10%);
+            }
+
+            40% {
+                transform: translateY(-114%);
+            }
+
+            60% {
+                transform: translateY(-200%);
+            }
+
+            80% {
+                transform: translateY(-300%);
+            }
+
+            100% {
+                transform: translateY(-610%);
+            }
         }
-        40%{
-            transform: translateY(-114%);
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                scale: 0.5;
+            }
+
+            to {
+                opacity: 1;
+                scale: 1;
+            }
         }
-        60%{
-            transform: translateY(-200%);
+
+        @keyframes fade-out {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0px) scale(1);
+            }
         }
-        80%{
-            transform: translateY(-300%);
+        *{
+            overflow-wrap:break-word;
+            max-width: 100%;
         }
-        100%{
-            transform: translateY(-610%);
+        input,
+        button,
+        select,
+        textarea {
+            font: inherit;
+            
         }
-    }
-    
-    @keyframes appear{
-        from{
-            opacity:0;
-            scale:0.5;
+        .form-submit{
+            margin-top: 2rem;
+            display: grid;
+            align-items: center;
+            justify-content: center;
         }
-        to{
-            opacity:1;
-            scale:1;
+        form{
+            margin-top: 4rem;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
         }
-    }
-    
-    @keyframes fade-out{
-        0% {
-            opacity:0;
-            transform: translateY(30px) scale(0);
+        input{
+            background:var(--surface-1);
+            color: var(--text-1);
+            border-radius: 6px;
+            margin-left: 1rem;
+            text-box-trim: trim-both;
+            
+        }
+        .header-main {
+            width: 100%;
+            height: 60px;
+            /* background-color: aqua  ; */
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .logo {
+            max-height: 100%;
+            width: auto;
+            padding-left: 50px;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        .header-nav {
+            height: 100%;
+            /* background-color:red; */
+        }
+
+        .header-nav ul {
+            list-style-type: none;
+            margin: 0%;
+            padding: 0%;
+            margin-left: 2rem;
+            border-radius: 2rem;
+            display: flex;
+
+        }
+
+        .header-nav ul li {
+            margin-left: 30px;
+            line-height: 60px;
+            margin-right: 30px;
+
+        }
+
+        .amc:hover {
+            background-color: black;
+            border-radius: 1.25rem;
+        }
+
+        .header-sm {
+            height: 100%;
+            display: flex;
+
+
+        }
+
+        .login {
+            justify-content: center;
+            line-height: 60px;
+            margin-right: 10px;
+            border-radius: 10px;
+            background-color: whitesmoke;
+            padding-left: 2rem;
+            padding-right: 2rem;
         }
         
-        100% {
-            opacity:1;
-            transform: translateY(0px) scale(1);
+        .login a {
+            color: black;
         }
-    }
-    
-    .header-main{
-        width: 100%;
-        height: 60px;
-        /* background-color: aqua  ; */
-        display:flex;
-        justify-content: space-between;
+
+        .login a:hover,
+        .login:hover {
+            color: blue;
+            background-color: gray;
+        }
+
+        .jk {
+            justify-content: center;
+            margin-top: 15rem;
+            margin-left: 8rem;
+            font-size: 6rem;
+        }
+
+        .tex {
+            display: flex;
+            margin-top: 15rem;
+            font-size: 4rem;
+            margin-left: 4rem;
+
+        }
+
+        .te2 {
+            margin-top: 4.2rem;
+            overflow: hidden;
+            margin-left: 1rem;
+            height: 4.6rem;
+
+        }
+
+        span {
+
+            display: block;
+            animation-delay: 1s;
+            animation: spinworth 4s infinite;
+        }
+
+
+
+        .bang {
+            position: relative;
+
+        }
+
+        .bang::before {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 100%;
+            background: aquamarine;
+            z-index: -1;
+            transition: 0.3s;
+        }
+
+        .bang:hover::before {
+            width: 100%;
+        }
         
-    }
-    .logo{
-        height: 100%;
-        width: fit-content;
-        padding-left:50px;
-    }
-    .logo img{
-        height: 60px;
-    }
-    .header-nav{
-        height: 100%;
-        /* background-color:red; */
-    }
-    .header-nav ul{
-        list-style-type : none;
-        margin: 0%;
-        padding: 0%;
-        margin-left:2rem;
-        border-radius: 2rem;
-        display : flex;
-        
-    }
-    .header-nav ul li{
-        margin-left: 30px;
-        line-height: 60px;
-        margin-right: 30px;
-        
-    }
-    .amc:hover{
-        background-color: black;
-        border-radius: 1.25rem;
-    }
-    
-    .header-sm{
-        height: 100%;
-        display: flex;
-        
-        
-    }
-    .login{
-        justify-content: center;
-        line-height: 60px;
-        margin-right: 10px;
-        border-radius: 10px;
-        background-color: whitesmoke;
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-    .login a{
-        color:black;
-    }
-    
-    .login a:hover,.login:hover{
-        color:blue;
-        background-color:gray;
-    }
-    
-    .jk{
-        justify-content: center;
-        margin-top:15rem;
-        margin-left:8rem;
-        font-size:6rem;
-    }
-    
-    .tex{
-        display: flex;
-        margin-top: 15rem;
-        font-size: 4rem;
-        margin-left: 4rem;
-        
-    }
-    .te2{
-        margin-top:4.2rem;
-        overflow: hidden;
-        margin-left: 1rem;
-        height: 4.6rem;
-       
-    }
-    span{
-        
-        display: block;
-        animation-delay: 1s;
-        animation:spinworth 4s infinite ;
-    }
-    
-    
-    
-    .bang{
-        position:relative;
-    
-    }
-    .bang::before{
-        content: "";
-        position: absolute;
-        width:0%;
-        height:100%;
-        background:aquamarine;
-        z-index:-1;
-        transition: 0.3s;
-    }
-    .bang:hover::before{
-        width: 100%;
-    }
-    
-    .block{
-        
-        margin-bottom: 50rem;
-        width:50rem;
-        font-size: 2rem;
-        animation:fade-out 0.5s;
-        animation-timeline: view();
-        animation-range: entry -1rem;
-    }
-    .sed{
-        margin-top:30rem;
-        margin-bottom: 10rem;
-        margin-left: 4rem;
-    }
-    footer p{
-        font-size:2rem;
-        display: flex;
-        justify-content: center;
-        min-width: 100vw;
-        min-height: 5vh;
-        padding-bottom: 0;
-        margin-bottom: 0;
-        margin-left: 0;
-        background-color: aqua  ;
-    }
+        .block {
+
+            margin-bottom: 50rem;
+            width: 50rem;
+            font-size: 2rem;
+            animation: fade-out 0.5s;
+            animation-timeline: view();
+            animation-range: entry -1rem;
+        }
+
+        .sed {
+            margin-top: 30rem;
+            margin-bottom: 10rem;
+            margin-left: 4rem;
+        }
+        footer{
+            bottom: 0;
+        }
+        footer {
+            font-size: 2rem;
+            text-align: center;
+            width: 100%;
+            background-color: aqua;
+            overflow-wrap: break-word;
+        }
     </style>
     <!-- Option 1: Include in HTML -->
-    
+
 </head>
 
 <body>
@@ -213,25 +262,31 @@
     </header>
 
     <form action="/submit" method="POST">
-        <label for="CGPA" >CGPA </label><input type="number" step="0.0001" id="CGPA" name="CGPA" value="0"><br>
-        <label for="Credits">Credits</label><input type="number" id="Credits" name="Credits" value="0"><br>
-        <label for="ExtraCurricular">Number Of ExtraCurricular Activities</label><input type="number"
-            id="ExtraCurricular" name="ExtraCurricular" value="0"><br>
-        <label for="Projects">Number of Projects</label><input type="number" id="Projects" name="Projects" value="0"><br>
-        <label for="SelfStudy">Hours spent on self-study</label><input type="number" id="SelfStudy" name="SelfStudy"
-            value="0"><br>
-        <label for="Engagement">Rate your interest in your department's subjects (1-10):</label><input type="number"
-            id="Engagement" name="Engagement" value="0"><br>
-        <label for="Assignment">Do you complete assignments sincerely?</label>
-        <input type="radio" name="Assignment" value="1"> Yes
-        <input type="radio" name="Assignment" value="0.5"> Partially
-        <input type="radio" name="Assignment" value="0"> No
-        <br>
-        <label for="Contribution">On a scale of 1 to 10, how much will your professor's help improve your grades?</label><input type="number" id="Contribution" name="Contribution" value="0" min="1" max="10"><br>
-        <input type="submit" value="Submit">
-        
+        <div class="form-group"><label for="CGPA">CGPA </label><input type="number" step="0.0001" id="CGPA" name="CGPA"
+                value="0"><br></div>
+        <div class="form-group"><label for="Credits">Credits</label><input type="number" id="Credits" name="Credits"
+                value="0"><br></div>
+        <div class="form-group"><label for="ExtraCurricular">Number Of ExtraCurricular Activities</label><input
+                type="number" id="ExtraCurricular" name="ExtraCurricular" value="0"><br></div>
+        <div class="form-group"><label for="Projects">Number of Projects</label><input type="number" id="Projects"
+                name="Projects" value="0"><br></div>
+        <div class="form-group"><label for="SelfStudy">Hours spent on self-study</label><input type="number"
+                id="SelfStudy" name="SelfStudy" value="0"><br></div>
+        <div class="form-group"><label for="Engagement">Rate your interest in your department's subjects
+                (1-10):</label><input type="number" id="Engagement" name="Engagement" value="0"><br></div>
+        <div class="form-group"><label for="Assignment">Do you complete assignments sincerely?</label>
+            <input type="radio" name="Assignment" value="1"> Yes
+            <input type="radio" name="Assignment" value="0.5"> Partially
+            <input type="radio" name="Assignment" value="0"> No
+            <br>
+        </div>
+        <div class="form-group"><label for="Contribution">On a scale of 1 to 10, how much will your professor's help
+                improve your grades?</label><input type="number" id="Contribution" name="Contribution" value="0" min="1"
+                max="10"><br></div>
+        <div class="form-submit"><input type="submit" value="Submit"></div>
+
     </form>
-    
+
     <footer>
         <p>Contact Us @ <a href="mailto://kishorethiyagarajan7@gmail.com">kishorethiyagarajan7@gmail.com</a></p>
     </footer>
